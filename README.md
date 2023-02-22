@@ -24,7 +24,7 @@ sudo nft add table inet filter
 sudo nft add table inet nat
 ```
 
-[Firewall2](capturas/1.png)
+![Firewall2](capturas/1.png)
 
 ### Creación de las cadenas de filter:
 ```bash
@@ -33,7 +33,7 @@ sudo nft add chain inet filter output { type filter hook output priority 0 \; co
 sudo nft add chain inet filter forward { type filter hook forward priority 0 \; counter \; policy accept \; }
 ```
 
-[Firewall2](capturas/2.png)
+![Firewall2](capturas/2.png)
 
 ### Creación de las cadenas de nat:
 ```bash
@@ -41,7 +41,7 @@ sudo nft add chain inet nat prerouting { type nat hook prerouting priority 0 \; 
 sudo nft add chain inet nat postrouting { type nat hook postrouting priority 100 \; }
 ```
 
-[Firewall2](capturas/3.png)
+![Firewall2](capturas/3.png)
 
 ### Tráfico ssh entrante al cortafuegos
 ```bash
@@ -49,7 +49,7 @@ sudo nft add rule inet filter input ip saddr 172.29.0.0/16 tcp dport 22 ct state
 sudo nft add rule inet filter output ip daddr 172.29.0.0/16 tcp sport 22 ct state established counter accept
 ```
 
-[Firewall2](capturas/4.png)
+![Firewall2](capturas/4.png)
 
 ### Políticas por defecto
 ```bash
@@ -58,7 +58,7 @@ sudo nft chain inet filter output { policy drop \; }
 sudo nft chain inet filter forward { policy drop \; }
 ```
 
-[Firewall2](capturas/5.png)
+![Firewall2](capturas/5.png)
 
 No puedo hacer ping a localhost:
 ```bash
