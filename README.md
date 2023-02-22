@@ -438,7 +438,6 @@ sudo nft list -a ruleset | grep 53
 
 ![Firewall2](capturas/53.png)
 
-```
 Deberemos eliminar antes las reglas que permiten hacer consultas DNS a cualquier servidor:
 ```bash
 sudo nft delete rule inet filter forward handle 21 
